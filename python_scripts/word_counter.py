@@ -1,9 +1,12 @@
+"""A script to count words in a text file."""
+
 import argparse
 
 
 def count_words(file_path):
+    """Count the number of words in the given file."""
     try:
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             content = file.read()
             return len(content.split())
     except FileNotFoundError:
@@ -13,6 +16,7 @@ def count_words(file_path):
 
 
 def main():
+    """Parse command-line arguments and run the word counter."""
     parser = argparse.ArgumentParser(description="Count words in a text file.")
     parser.add_argument("file_path", help="Path to the text file")
     args = parser.parse_args()
